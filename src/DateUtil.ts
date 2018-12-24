@@ -5,6 +5,7 @@
 import {MomentInput} from 'moment'
 import * as moment from 'moment-timezone'
 import {DurationInputArg1, unitOfTime} from 'moment-timezone'
+import {WorkdayFactory} from './workday'
 
 moment.tz.setDefault('Asia/Shanghai')
 
@@ -56,5 +57,26 @@ export class DateUtil {
   static compare (date1: MomentInput, date2: MomentInput = new Date()) {
     return moment(date1).diff(date2, 'seconds')
   }
-}
 
+  /**
+   * 是否是工作日
+   * @param currentTime 时间
+   */
+  static isWorkDay (currentTime: Date): Boolean {
+    let now = currentTime || new Date()
+    return WorkdayFactory.getInstance().getWorkdayImpl(now.getFullYear()).isWorkDay(now)
+  }
+
+  /**
+   * 返回下一个工作日
+   * @param currentTime 时间
+   */
+  static getNextWorkDay (currentTime: Date): Date {
+    let now = currentTime || new Date()
+    let next = this.addDay(now, 1)
+    while (!this.isWorkDay(next)) {
+      next = this.addDay(next, 1)
+    }
+    return next
+  }
+}

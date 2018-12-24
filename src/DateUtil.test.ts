@@ -14,7 +14,6 @@ describe(' DateUtil Test ', () => {
     expect(DateUtil.addDay(new Date('2017/1/5 12:30'), -3)).toEqual(new Date('2017/1/2 12:30'))
   })
 
-
   it(' addMonth ', async () => {
     expect(DateUtil.addMonth(new Date('2017/1/1'), 2)).toEqual(new Date('2017/3/1'))
     expect(DateUtil.addMonth(new Date('2017/1/1'), -1)).toEqual(new Date('2016/12/1'))
@@ -42,4 +41,21 @@ describe(' DateUtil Test ', () => {
     expect(DateUtil.compare(new Date('2017/1/2'), new Date('2017/1/1'))).toEqual(86400)
   })
 
+  it('test isWorking day', async () => {
+    expect(DateUtil.isWorkDay(new Date('2018/12/24'))).toEqual(true)
+    expect(DateUtil.isWorkDay(new Date('2018/12/28'))).toEqual(true)
+    expect(DateUtil.isWorkDay(new Date('2018/12/29'))).toEqual(true)
+    expect(DateUtil.isWorkDay(new Date('2018/12/30'))).toEqual(false)
+    expect(DateUtil.isWorkDay(new Date('2019/01/01'))).toEqual(false)
+    expect(DateUtil.isWorkDay(new Date('2019/01/02'))).toEqual(true)
+  })
+
+  it('test getNextWorkDay', async () => {
+    expect(DateUtil.getNextWorkDay(new Date('2018/12/24'))).toEqual(new Date('2018/12/25'))
+    expect(DateUtil.getNextWorkDay(new Date('2018/12/28'))).toEqual(new Date('2018/12/29'))
+    expect(DateUtil.getNextWorkDay(new Date('2018/12/29'))).toEqual(new Date('2019/01/02'))
+    expect(DateUtil.getNextWorkDay(new Date('2018/12/30'))).toEqual(new Date('2019/01/02'))
+    expect(DateUtil.getNextWorkDay(new Date('2019/01/01'))).toEqual(new Date('2019/01/02'))
+    expect(DateUtil.getNextWorkDay(new Date('2019/01/02'))).toEqual(new Date('2019/01/03'))
+  })
 })
