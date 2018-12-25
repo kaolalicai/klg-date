@@ -62,18 +62,17 @@ export class DateUtil {
    * 是否是工作日
    * @param currentTime 时间
    */
-  static isWorkDay (currentTime: Date): boolean {
-    let now = currentTime || new Date()
-    return WorkdayFactory.getInstance().getWorkdayImpl(now.getFullYear()).isWorkDay(now)
+  static isWorkDay (currentTime: any): boolean {
+    const date = moment(currentTime || new Date()).startOf('day').toDate()
+    return WorkdayFactory.getInstance().getWorkdayImpl(date.getFullYear()).isWorkDay(date)
   }
 
   /**
    * 返回下一个工作日
    * @param currentTime 时间
    */
-  static getNextWorkDay (currentTime: Date): Date {
-    let now = currentTime || new Date()
-    let next = this.addDay(now, 1)
+  static getNextWorkDay (currentTime: any): Date {
+    let next = this.getDayStart(currentTime, 1)
     while (!this.isWorkDay(next)) {
       next = this.addDay(next, 1)
     }

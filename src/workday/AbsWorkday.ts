@@ -62,8 +62,7 @@ export abstract class AbsWorkday {
    * @param date 时间
    */
   isWorkDay (date: Date): boolean {
-    const time = moment(date || new Date()).startOf('day').valueOf()
-    return this.isWorkdayMap[time]
+    return this.isWorkdayMap[date.getTime()]
   }
 
   /**
