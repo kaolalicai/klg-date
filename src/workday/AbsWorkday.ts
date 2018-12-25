@@ -17,7 +17,7 @@ export abstract class AbsWorkday {
     WORKDAY: 'workday'
   }
   // 是否为工作日的缓存
-  private isWorkdayMap: Map<number, Boolean> = new Map()
+  private isWorkdayMap: Map<number, boolean> = new Map()
 
   constructor (year) {
     this.year = year
@@ -61,7 +61,7 @@ export abstract class AbsWorkday {
    * 是否为工作日
    * @param date 时间
    */
-  isWorkDay (date: Date): Boolean {
+  isWorkDay (date: Date): boolean {
     const time = moment(date || new Date()).startOf('day').valueOf()
     return this.isWorkdayMap[time]
   }

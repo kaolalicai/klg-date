@@ -62,7 +62,7 @@ export class DateUtil {
    * 是否是工作日
    * @param currentTime 时间
    */
-  static isWorkDay (currentTime: Date): Boolean {
+  static isWorkDay (currentTime: Date): boolean {
     let now = currentTime || new Date()
     return WorkdayFactory.getInstance().getWorkdayImpl(now.getFullYear()).isWorkDay(now)
   }
