@@ -29,8 +29,18 @@ export class WorkDay2019 extends AbsWorkday {
       },
       {
         'name': '劳动节',
-        'range': ['2019-05-01'],
+        'range': ['2019-05-01', '2019-05-03'],
         'type': this.DAY_TYPE.HOLIDAY
+      },
+      {
+        'name': '劳动节',
+        'range': ['2019-04-28'],
+        'type': this.DAY_TYPE.WORKDAY
+      },
+      {
+        'name': '劳动节',
+        'range': ['2019-05-05'],
+        'type': this.DAY_TYPE.WORKDAY
       },
       {
         'name': '端午节',

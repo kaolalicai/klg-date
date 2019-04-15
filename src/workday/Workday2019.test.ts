@@ -18,9 +18,12 @@ describe('Workday2018 Test ', () => {
     expect(instance.isWorkDay(new Date('2019/04/05'))).toEqual(false)
     expect(instance.isWorkDay(new Date('2019/04/06'))).toEqual(false)
 
+    expect(instance.isWorkDay(new Date('2019/04/28'))).toEqual(true)
     expect(instance.isWorkDay(new Date('2019/04/30'))).toEqual(true)
     expect(instance.isWorkDay(new Date('2019/05/01'))).toEqual(false)
-    expect(instance.isWorkDay(new Date('2019/05/02'))).toEqual(true)
+    expect(instance.isWorkDay(new Date('2019/05/02'))).toEqual(false)
+    expect(instance.isWorkDay(new Date('2019/05/03'))).toEqual(false)
+    expect(instance.isWorkDay(new Date('2019/05/05'))).toEqual(true)
 
     expect(instance.isWorkDay(new Date('2019/06/06'))).toEqual(true)
     expect(instance.isWorkDay(new Date('2019/06/07'))).toEqual(false)

@@ -31,7 +31,9 @@
     "coverageReporters": [
       "json",
       "lcov"
-    ]
+    ],
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "repository": {
     "type": "git",
