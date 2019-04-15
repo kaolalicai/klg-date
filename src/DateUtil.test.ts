@@ -48,6 +48,9 @@ describe(' DateUtil Test ', () => {
     expect(DateUtil.isWorkDay(new Date('2018/12/30'))).toEqual(false)
     expect(DateUtil.isWorkDay(new Date('2019/01/01'))).toEqual(false)
     expect(DateUtil.isWorkDay(new Date('2019/01/02'))).toEqual(true)
+    expect(DateUtil.isWorkDay(new Date('2019/04/28'))).toEqual(true)
+    expect(DateUtil.isWorkDay(new Date('2019/05/02'))).toEqual(false)
+    expect(DateUtil.isWorkDay(new Date('2019/05/05'))).toEqual(true)
   })
 
   it('test getNextWorkDay', async () => {
