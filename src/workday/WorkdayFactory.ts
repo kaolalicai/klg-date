@@ -1,5 +1,6 @@
 import { WorkDay2018 } from './Workday2018'
 import { WorkDay2019 } from './Workday2019'
+import { WorkDay2020 } from './Workday2020'
 import { AbsWorkday } from './AbsWorkDay'
 
 export class WorkdayFactory {
@@ -9,7 +10,8 @@ export class WorkdayFactory {
   private constructor () {
     const impls = [
       new WorkDay2018(),
-      new WorkDay2019()
+      new WorkDay2019(),
+      new WorkDay2020()
     ]
     for (const impl of impls) {
       this.map[impl.year] = impl
