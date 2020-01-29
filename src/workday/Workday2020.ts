@@ -19,14 +19,14 @@ export class WorkDay2020 extends AbsWorkday {
       },
       {
         'name': '春节',
-        'range': ['2020-01-24', '2020-01-30'],
+        'range': ['2020-01-24', '2020-01-31'],
         'type': this.DAY_TYPE.HOLIDAY
       },
-      {
-        'name': '春节',
-        'range': ['2020-02-01'],
-        'type': this.DAY_TYPE.WORKDAY
-      },
+      // {
+      //   'name': '春节',
+      //   'range': ['2020-02-01'],
+      //   'type': this.DAY_TYPE.WORKDAY
+      // },
       {
         'name': '清明节',
         'range': ['2020-04-04', '2020-04-06'],
