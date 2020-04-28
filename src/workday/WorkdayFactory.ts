@@ -1,7 +1,7 @@
-import { WorkDay2018 } from './Workday2018'
-import { WorkDay2019 } from './Workday2019'
-import { WorkDay2020 } from './Workday2020'
-import { AbsWorkday } from './AbsWorkDay'
+import {WorkDay2018} from './Workday2018'
+import {WorkDay2019} from './Workday2019'
+import {WorkDay2020} from './Workday2020'
+import {AbsWorkday} from './AbsWorkDay'
 
 export class WorkdayFactory {
   private static instance: WorkdayFactory
@@ -14,7 +14,7 @@ export class WorkdayFactory {
       new WorkDay2020()
     ]
     for (const impl of impls) {
-      this.map[impl.year] = impl
+      this.map.set(impl.year, impl)
     }
   }
 
@@ -27,8 +27,8 @@ export class WorkdayFactory {
    * @param year 年份
    */
   getWorkdayImpl (year: number): AbsWorkday {
-    if (this.map[year]) {
-      return this.map[year]
+    if (this.map.get(year)) {
+      return this.map.get(year) as AbsWorkday
     } else {
       throw new Error('No such workday implements!')
     }

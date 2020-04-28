@@ -19,7 +19,7 @@ export abstract class AbsWorkday {
   // 是否为工作日的缓存
   private isWorkdayMap: Map<number, boolean> = new Map()
 
-  constructor (year) {
+  constructor (year: number) {
     this.year = year
     // 调休假日
     const ajustHolidays: Set<number> = new Set([])
@@ -46,13 +46,13 @@ export abstract class AbsWorkday {
     const endTime = moment(startTime).endOf('year').valueOf()
     for (let time = startTime; time <= endTime; time += this.ONE_DAY_TIMESTAMP) {
       if (ajustWorkdays.has(time)) {
-        this.isWorkdayMap[time] = true
+        this.isWorkdayMap.set(time, true)
       } else if (this.isWeekend(new Date(time))) {
-        this.isWorkdayMap[time] = false
+        this.isWorkdayMap.set(time, false)
       } else if (ajustHolidays.has(time)) {
-        this.isWorkdayMap[time] = false
+        this.isWorkdayMap.set(time, false)
       } else {
-        this.isWorkdayMap[time] = true
+        this.isWorkdayMap.set(time, true)
       }
     }
   }
@@ -62,7 +62,7 @@ export abstract class AbsWorkday {
    * @param date 时间
    */
   isWorkDay (date: Date): boolean {
-    return this.isWorkdayMap[date.getTime()]
+    return Boolean(this.isWorkdayMap.get(date.getTime()))
   }
 
   /**

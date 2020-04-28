@@ -8,7 +8,7 @@ describe(' DateUtil Test ', () => {
   })
 
   it(' addDay ', async () => {
-    expect(DateUtil.getDayStart(DateUtil.addDay(null))).toEqual(DateUtil.getDayStart())
+    expect(DateUtil.getDayStart(DateUtil.addDay(undefined))).toEqual(DateUtil.getDayStart())
     expect(DateUtil.addDay(new Date('2017/1/1'), 3)).toEqual(new Date('2017/1/4'))
     expect(DateUtil.addDay(new Date('2017/1/1'), -1)).toEqual(new Date('2016/12/31'))
     expect(DateUtil.addDay(new Date('2017/1/5 12:30'), -3)).toEqual(new Date('2017/1/2 12:30'))
@@ -25,7 +25,7 @@ describe(' DateUtil Test ', () => {
     expect(DateUtil.diff(new Date('2017/1/4'), new Date('2017/1/7'))).toEqual(3)
     expect(DateUtil.diff(new Date('2017/1/4 12:00'), new Date('2017/1/7'))).toEqual(3)
     expect(
-      DateUtil.diff(DateUtil.addDay(null, -3))
+      DateUtil.diff(DateUtil.addDay(undefined, -3))
     ).toEqual(3)
     expect(
       DateUtil.diff(DateUtil.getDayStart(), DateUtil.addDay(DateUtil.getDayStart(), 30))
