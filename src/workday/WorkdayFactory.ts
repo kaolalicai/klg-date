@@ -2,6 +2,7 @@ import {WorkDay2018} from './Workday2018'
 import {WorkDay2019} from './Workday2019'
 import {WorkDay2020} from './Workday2020'
 import {WorkDay2021} from './Workday2021'
+import {WorkDay2022} from './Workday2022'
 import {AbsWorkday} from './AbsWorkDay'
 
 export class WorkdayFactory {
@@ -13,7 +14,8 @@ export class WorkdayFactory {
       new WorkDay2018(),
       new WorkDay2019(),
       new WorkDay2020(),
-      new WorkDay2021()
+      new WorkDay2021(),
+      new WorkDay2022()
     ]
     for (const impl of impls) {
       this.map.set(impl.year, impl)
